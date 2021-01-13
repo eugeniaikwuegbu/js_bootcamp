@@ -1,9 +1,9 @@
+/boiler-plate/node_modules
 /hangman/node_modules
-hangman-functions.js
+/notes-app/node_modules
 /rest-params/node_modules
+hangman-functions.js
 documentation.txt
 netflix.html
 notes.txt
 test.html
-
-.gitignore
