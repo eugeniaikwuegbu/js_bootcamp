@@ -21,11 +21,11 @@ const removeTodo = (id) => {
     }
 }
 
-//checking/unchecking a todo
+//toggle Todo
 const checkTodos = (id) => {
-    const todo = todos.find((todo) =>todo.id === id)
+    const todo = todos.find((todo) => todo.id === id)
    if(todo){
-       todo.completed = !todo.completed
+       todo.completed = !todo.completed //once checked, the uncompleted todo becomes completed ie todo.completed = false will be todo.completed = true
    }
 }
 

@@ -2,7 +2,7 @@ import{initializeEditPage, getLastEdited} from './views'
 import{updateNote, removeNote} from './notes'
 
 const span = document.querySelector('#last-edited')
-let div1 = document.querySelector('#note-title')
+// let div1 = document.querySelector('#note-title')
 const titleEl = document.querySelector('#note-title')
 const bodyEl = document.querySelector('#note-body')
 const noteId = location.hash.substring(1)
