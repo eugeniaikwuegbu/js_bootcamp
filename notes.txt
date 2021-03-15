@@ -1,0 +1,217 @@
+Undefined is the absence of a value, no value was assigned
+
+A method is an object property whose value is a function
+
+number.toFixed()
+accepts a number which specifies the number of decimal places we would like to preserve
+example number.toFixed(2) preserves two decimal places
+
+-Objects
+You can reassign the property of an object that was defined using const but you can't reassign the object itself
+eg CAN-DO
+const person ={
+    age : 22
+}
+
+person.age = 27
+
+CANT-DO
+const person = {
+    age : 28
+}
+person = {
+    time : 9pm
+}
+
+-Loops
+for better results, findIndex is used to find the index of items in an OBJECT instead of using indexOf()
+This is because indexOf uses === to search and this === does not apply to objects unless they are pointing to the same object in memory
+
+-Filter
+Always returns an array whether there is a match or not
+filter() method returns items that pass the test ie that items that will return true.
+
+-Sort
+sort() method does nothing for an array of objects except it is defined with a callback
+which tells it what to do with the object
+The reverse is the case for an array of just strings, with that you can just call the sort() method on the array of strings or strings itself, it just sorts alphabetically
+
+
+ if(a.completed > b.completed){
+    return 1
+} else if (b.completed > a.completed){
+    return -1
+    
+b.completed == true while a.completed == false
+false < true
+true > false
+therefore, b > a, a < b
+
+-Event.target
+e.target is useful when you want to do something with the element the even was fired on
+
+-id
+2 elements should not share one id
+An id should be peculiar to only one element
+
+-QuerySelectorAll
+Is used with classes when you want to get everything that has that className
+
+-Multiple selection on the DOM
+tag name must come first
+eg doucument.querySelector("p.paragraph#school") ie p-tags with class paragraph and id of school
+
+try using e.target.name.value
+
+-Input Event
+Tracks the individual key strokes on the input element
+
+-e.target.elements
+enables you to access the elements in the form
+
+-checked property on js
+is true if checkbox is checked and false if unchecked
+
+-CRUD operations for storing data in any data base
+
+Create Read Update Delete
+
+// const paragraph = document.querySelectorAll('p')
+    // console.log(paragraph)
+    // paragraph.forEach(function (p){
+    //     if(p.textContent.includes('the')){
+    //         p.remove()
+    //     }
+    // })
+    // const filters =paragraph1.filter(function (p){
+        //     if(p.textContent.includes('the')){
+        //         p.remove()
+        //     }
+        // })
+
+-Linking JS files
+JS files run int he order in which they are linked to the html file
+Also, variables defined in a js file can be accessed in another JS file as long as they are both linked to the same html file
+
+-coding 101
+While coding, implement each at a time and test for functionality at each time so if each breaks you know where the problem comes from.
+saves a lot of stress and sanity
+
+--Append can be used to append several node objects while appendChild only appends one node value at a time
+
+-substring(start-index, end-index but not including end-index value)
+Lets you get any part of a strings
+
+-working with time
+const dateInThePast = new Date('January 9 2007 00:00:00')
+const dateInThePresent = new Date('January 9 2019 00:00:00')
+
+
+const timestamp1 = dateInThePast.getTime()
+const timestamp2 = dateInThePresent.getTime()
+
+
+if(timestamp1 > timestamp2){
+    console.log(dateInThePast.toString())
+}else if(timestamp2 > timestamp1){
+    console.log(dateInThePresent.toString())
+}
+
+-Moments.js
+const newMoment = moment()
+// newMoment.add({months:1}).subtract({days:5, year:25}).format('MMM D YYYY')
+
+newMoment.year(1996).month(0).date(9)
+
+console.log(newMoment.format('MMM D, YYYY'))
+
+
+-Arguments
+stores all the arguments passed into a function
+
+--arrow functions
+when creating a method as the property of an object, do not use arrow funtions as it does not bind 'this'
+eg const fine = {
+    isBeautiful : true,
+    getSummary : function (){
+        this.isBeautiful
+    }
+}
+console.log(fine.getSummary())
+output: true ///// This works
+
+const fine = {
+    isBeautiful : true,
+    getSummary(){
+        this.isBeautiful
+    }
+}
+console.log(fine.getSummary())
+output: true ///// This works too
+
+const fine = {
+    isBeautiful : true,
+    getSummary : () => {
+        this.isBeautiful
+    }
+}
+console.log(fine.getSummary())
+output : undefined //// cannot read 'this'
+
+-truthy values
+empty arrays and objects are truthy values
+
+Truthy and falsy values cannt be applied when there is a comparism of 2 factors
+eg a === b
+but can work where you want to check if something exists or not
+if(a !== undefined) changed to if(a)
+
+-typeof
+returns a string
+eg typeof 0 equals 'number'
+if(typeof 0 === 'number')
+
+-'use strict'
+when a block of code crashes in strict mode, it equally crashes the file and disables 
+any other code that comes after the bugged code making it not to run
+
+--return
+a function that does not return anything returns undefined
+
+--the 'new' keyword in JS
+The new keyword is used in javascript to create a object from a constructor function. 
+The new keyword has to be placed before the constructor function call and will do the following things:
+ Creates a new object.
+ Sets the prototype of this object to the constructor function's prototype property
+ Binds the this keyword to the newly created object and executes the constructor function.
+ Returns the newly created object
+
+ --prototypal inheritance
+ allows you store everything you want to share with all instances of the constructor function
+
+ --primitive values
+ values that are not an object, values that do not have properties
+ they are 5
+ string, number, boolean, null, undefined
+
+ --class
+ This is an alternative way to define a constructor function
+
+ --extends
+ This is a JS reserved keyword, it enables a another class (subclass) to inherit properties from another class already defined
+ eg class Employee extends Person // where the Person constructorhas already been called, class Employee will now inherit
+ properties from class Person
+
+ //Another method for solving the OOP1 challenge
+    // getBio(){
+    //     let bio 
+    //     if(this.grades <= 69){
+    //         bio = `${this.firstName} ${this.lastName}, ${this.age} is failing the class`
+    //     }else {
+    //         bio = `${this.firstName} ${this.lastName}, ${this.age} is passing the class`
+    //     }
+    //     return bio
+    // }
+
+--HTTP request and responses
+In order to parse a response text, you have to wait for the request to be completed, thereby setting up an if statement
